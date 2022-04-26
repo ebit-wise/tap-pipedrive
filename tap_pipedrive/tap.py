@@ -273,7 +273,7 @@ class PipedriveTap(object):
                         if not row: # in case of a non-empty response with an empty element
                             continue
 
-                        for field_name in row:
+                        for field_name in list(row):
                             if field_name[0].isdigit():
                                 row['_' + field_name] = row.pop(field_name)
                         row = optimus_prime.transform(row, stream.get_schema(), stream_metadata)

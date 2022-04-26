@@ -81,7 +81,7 @@ class DynamicTypingRecentsStream(RecentsStream):
                 except Exception as e:
                     raise e
 
-            for field_name in schema['properties']:
+            for field_name in list(schema['properties']):
                 if field_name[0].isdigit():
                     schema['properties']['_' + field_name] = schema['properties'].pop(field_name)
             self.schema_cache = schema
